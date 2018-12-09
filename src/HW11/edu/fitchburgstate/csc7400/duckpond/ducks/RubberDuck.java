@@ -7,9 +7,10 @@
 
 package HW11.edu.fitchburgstate.csc7400.duckpond.ducks;
 
-import HW11.edu.fitchburgstate.csc7400.duckpond.behaviors.fly.CannotFly;
-import HW11.edu.fitchburgstate.csc7400.duckpond.behaviors.quack.Squeak;
-import HW11.edu.fitchburgstate.csc7400.duckpond.behaviors.swim.SimpleSwim;
+import HW11.edu.fitchburgstate.csc7400.duckpond.behaviors.fly.FlyBehaviourFactory;
+import HW11.edu.fitchburgstate.csc7400.duckpond.behaviors.quack.QuackBehaviourFactory;
+import HW11.edu.fitchburgstate.csc7400.duckpond.behaviors.quack.QuackType;
+import HW11.edu.fitchburgstate.csc7400.duckpond.behaviors.swim.SwimBehaviorFactory;
 
 /**
  * Rubber duck for pond
@@ -21,9 +22,9 @@ public class RubberDuck extends Duck {
 	 */
 	public RubberDuck() {
 		super("Rubber Duck",
-				"ducky.bmp",
-				new CannotFly(),
-				new SimpleSwim("rubber duck floating"),
-				new Squeak());
+				  "ducky.bmp",
+				  FlyBehaviourFactory.createFlyBehavior(null),
+				  SwimBehaviorFactory.createSwimBehavior("rubber duck floating"),
+				  QuackBehaviourFactory.createQuackBehavior(QuackType.SQUEAK));
 	}
 }
